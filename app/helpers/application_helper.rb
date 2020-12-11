@@ -10,6 +10,8 @@ module ApplicationHelper
   end
 
   def application_helper_message
-    session[:source].present? ? " from #{session[:source]}!" : "!"
+    greeting = "Thanks for visiting me" 
+    greeting_add = (session[:source].present? ? " from #{session[:source]}!" : "!")
+    content_tag(:p, greeting + greeting_add, class: "source-greeting")
   end
 end
