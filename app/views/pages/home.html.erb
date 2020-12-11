@@ -1,4 +1,4 @@
-<h1><%= current_user ? ("Hi, #{current_user.first_name}") : ("Welcome") %><h1>
+<h1>Hi, <%=current_user.first_name %><h1>
 
 <h1>Blog Posts<h1>
 <%= @posts.inspect %>

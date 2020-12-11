@@ -5,5 +5,5 @@ class Blog < ApplicationRecord
 
   validates_presence_of :title, :body
 
-  belongs_to :topic
+  belongs_to :topic, optional: true #remove the ", optional: true" later when you add topic to the blog entry
 end
