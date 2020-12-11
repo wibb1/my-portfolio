@@ -22,6 +22,6 @@
     
     <%= yield %>
 
-    <p>Thanks for visiting me <%=  "from #{session[:source]}" if session[:source].present?%></p>
+    <p>Thanks for visiting me<%= session[:source].present? ? " from #{session[:source]}!" : "!" %></p>
   </body>
 </html>
