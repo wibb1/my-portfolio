@@ -6,4 +6,12 @@ class Blog < ApplicationRecord
   validates_presence_of :title, :body
 
   belongs_to :topic, optional: true #remove the ", optional: true" later when you add topic to the blog entry
+
+  def self.special_blogs
+    all
+  end
+
+  def self.featured_blogs
+    limit(2)
+  end
 end
