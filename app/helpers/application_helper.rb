@@ -14,4 +14,8 @@ module ApplicationHelper
     greeting_add = (session[:source].present? ? " from #{session[:source]}!" : "!")
     content_tag(:p, greeting + greeting_add, class: "source-greeting")
   end
+
+  def application_copyright_generator
+    Wibb1ViewTool::Renderer.copyright 'Will Campbell', 'All rights reserved'
+  end
 end

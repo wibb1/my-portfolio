@@ -57,3 +57,5 @@ gem 'friendly_id', '~> 5.2.4'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.5.3'
+
+gem 'wibb1_view_tool', git: 'https://github.com/wibb1/wibb1_view_tool'
