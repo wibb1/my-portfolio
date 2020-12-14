@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/wibb1/wibb1_view_tool
+  revision: 69bb6ce9fb8365504b5c9789ec7171bd0024c93b
+  specs:
+    wibb1_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -218,6 +224,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  wibb1_view_tool!
 
 RUBY VERSION
    ruby 2.6.5p114
