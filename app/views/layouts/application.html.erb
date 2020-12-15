@@ -18,20 +18,19 @@
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-    
-      <header class="masthead mb-auto">
 
-        <%= render "shared/application_nav" %>
+    <header class="masthead mb-auto">
 
-        <%= application_helper_login %>
+      <%= render "shared/application_nav" %>
 
-      </header>
+    </header>
 
-      <%= yield %>
+    <%= yield %>
 
-      <%= application_copyright_generator %>
+    <%= render "shared/application_footer" %>
 
-      <%= application_helper_message %>
+    <%= application_helper_message %>
+
 
 
   </div>
