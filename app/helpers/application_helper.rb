@@ -10,9 +10,10 @@ module ApplicationHelper
   end
 
   def application_helper_message
-    greeting = "Thanks for visiting me" 
-    greeting_add = (session[:source].present? ? " from #{session[:source]}!" : "!")
-    content_tag(:p, greeting + greeting_add, class: "source-greeting")
+    greeting1 = "Thanks for connecting through #{session[:source]}!"
+    greeting2 = "Thanks for joining me!"
+    greeting_add = (session[:source].present? ? greeting1 : greeting2)
+    content_tag(:p, greeting_add, class: "source-greeting")
   end
 
   def application_copyright_generator
