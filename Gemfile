@@ -61,3 +61,5 @@ gem 'bootstrap', '~> 4.5.3'
 gem 'wibb1_view_tool', git: 'https://github.com/wibb1/wibb1_view_tool'
 
 gem 'petergate', '~> 2.0', '>= 2.0.1'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'

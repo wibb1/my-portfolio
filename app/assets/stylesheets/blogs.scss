@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "font-awesome";
 
 .bottom a {
   color: white;
@@ -94,6 +94,10 @@ h1, h2, h3, h4, h5, h6 {
 .blog-post-meta {
   margin-bottom: 1.25rem;
   color: #999;
+}
+
+.social-links {
+  font-size: 2em;
 }
 
 /*
