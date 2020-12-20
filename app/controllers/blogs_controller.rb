@@ -1,8 +1,8 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit]}, site_admin: :all
-  
+
   # GET /blogs
   # GET /blogs.json
   def index
@@ -66,6 +66,11 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_status
+    @blog.published? ? (@blog.draft!) : (@blog.published!)
+    redirect_to blogs_url
   end
 
   private
