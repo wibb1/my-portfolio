@@ -19,14 +19,13 @@
   <div class="container">
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
-        <div class="col-5 pt-1">
+        <div class="col-9 pt-1">
           <div class="nav">
             <%= render "shared/blog_nav" %>
+            
           </div>
         </div>
-        <div class="col-4 pt-1">
-         
-        </div>
+        
         <div class="col-3 d-flex justify-content-end align-items-center">
           <a class="text-muted" href="#" aria-label="Search">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false">
@@ -41,10 +40,11 @@
     </header>
 
 
-<!-- Start of draft html text -->
+    <!-- Start of draft html text -->
 
     <!-- Subject Links - switch from exising to languages and frameworks -->
     <div class="blog-header-logo text-dark text-center "><%=@page_title%></div>
+    
     <div class="nav-scroller py-1 mb-2">
       <nav class="nav d-flex justify-content-between">
         <a class="p-2 text-muted" href="#">World</a>
@@ -69,15 +69,16 @@
           <div class="col p-4 d-flex flex-column position-static">
             <strong class="d-inline-block mb-2 text-primary">World</strong> <!-- this would be the language or framework the post is about - corresponding to the links in the nav above -->
             <h3 class="mb-0">Featured post</h3> <!-- title of the post -->
-            <div class="mb-1 text-muted">Nov 12</div>  <!-- date post was published -->
+            <div class="mb-1 text-muted">Nov 12</div> <!-- date post was published -->
             <p class="card-text mb-auto">
               This is a wider card with supporting text below as a natural
               lead-in to additional content.
             </p> <!-- a short blurb from the post or about the post maybe a different item in the blog table -->
-            <a href="#" class="stretched-link">Continue reading</a>  <!-- a link to the show page for the post -->
+            <a href="#" class="stretched-link">Continue reading</a> <!-- a link to the show page for the post -->
           </div>
           <div class="col-auto d-none d-lg-block">
-            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">  <!-- a link to an image related to the post/language/framwework -->
+            <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+              <!-- a link to an image related to the post/language/framwework -->
               <title>Placeholder</title>
               <rect width="100%" height="100%" fill="#55595c" />
               <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
@@ -111,17 +112,17 @@
     <!-- End of Featured Posts -->
   </div>
 
-  <!--  begining of the main section on blog posts showing the most recent blog first -->
+
   <main role="main" class="container">
     <div class="row">
 
-<%= yield %>
+      <%= yield %>
 
       <!-- Blog Sidebar -->
       <aside class="col-md-4 blog-sidebar">
         <div class="p-4 mb-3 bg-light rounded">
 
-        <!-- a short section about the blog and the goals -->
+          <!-- a short section about the blog and the goals -->
           <h4 class="font-italic">About</h4>
           <p class="mb-0">
             Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras
@@ -131,7 +132,7 @@
         </div>
 
 
-<!--Archive access would need to be coded to show only months with entries -->
+        <!--Archive access would need to be coded to show only months with entries -->
         <div class="p-4">
           <h4 class="font-italic">Archives</h4>
           <ol class="list-unstyled mb-0">
@@ -151,7 +152,7 @@
         </div>
 
 
-<!-- links to other sites (github/linkedin) -->
+        <!-- links to other sites (github/linkedin) -->
         <div class="p-4">
           <h4 class="font-italic">Elsewhere</h4>
           <ol class="list-unstyled">
@@ -167,7 +168,7 @@
   </main>
   <!-- /.container -->
 
-  
+
   <p class="text-centered"><%= application_helper_message %></p>
 
   <!--  Start of footer -->
@@ -181,7 +182,7 @@
       <a href="#">Back to top</a>
     </p>
   </footer>
-<!--end of footer -->
+  <!--end of footer -->
 </body>
 
 </html>

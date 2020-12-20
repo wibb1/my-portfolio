@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog"
-  access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
@@ -70,7 +70,7 @@ class BlogsController < ApplicationController
 
   def toggle_status
     @blog.published? ? (@blog.draft!) : (@blog.published!)
-    redirect_to blogs_url
+    redirect_to blogs_url, notice: 'Post Status has been updated.'
   end
 
   private
@@ -81,6 +81,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :status)
     end
 end

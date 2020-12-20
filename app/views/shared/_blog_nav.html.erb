@@ -4,4 +4,5 @@
   <%= link_to "Contact", contact_path, class: "p-2 text-muted" %>
   <%= link_to "Blog", blogs_path, class: "p-2 text-muted" %>
   <%= link_to "Portfolio", portfolios_path, class: "p-2 text-muted" %>
+  <%= link_to 'New Blog Entry', new_blog_path, class: "p-2 text-muted" if logged_in?(:site_admin) %>
 </nav>
