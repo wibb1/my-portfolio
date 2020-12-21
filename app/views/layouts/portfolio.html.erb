@@ -16,7 +16,7 @@
 <body>
   <%= render "shared/portfolio_nav" %>
   <main role="main">
-    <%= render 'shared/portfolio_masthead' %>
+    <%= render 'shared/portfolio_masthead' unless (params[:action] == "new" || params[:action] == "edit") %>
     <div class="album py-5">
       <div class="container">
         <%= yield %>
