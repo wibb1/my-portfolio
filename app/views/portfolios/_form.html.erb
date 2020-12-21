@@ -10,9 +10,9 @@
       <%= form.label :subtitle %>
       <%= form.text_field :subtitle, class: 'form-control' %>
     </div>
-<hr>
+    <hr>
     <div>
-    <label><strong>Technologies Used:</strong></label>
+      <label><strong>Technologies Used:</strong></label>
       <%= form.fields_for :technologies do |technology_form| %>
       <div class='form-group'>
         <%= technology_form.label :name %>
