@@ -277,7 +277,7 @@ DEPENDENCIES
   carrierwave-aws (~> 1.5)
   coffee-rails (~> 4.2)
   devise (~> 4.7, >= 4.7.3)
-  dotenv-rails (~> 2.7, >= 2.7.6)
+  dotenv-rails
   font-awesome-rails (~> 4.7, >= 4.7.0.5)
   friendly_id (~> 5.2.4)
   jbuilder (~> 2.5)
