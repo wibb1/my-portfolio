@@ -1,10 +1,12 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm" data-id="<%= portfolio_item.id %>">
-    <%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil? %>
+    <%= image_tag portfolio_img(portfolio_item.thumb_image, "thumb") %>
     <span> <%= link_to portfolio_item.title, portfolio_show_path(portfolio_item)%> </span> <%= portfolio_item.subtitle %>
+    
     <rect width="100%" height="100%" fill="#55595c" />
     
     </svg>
+
     <div class="card-body">
       <p class="card-text">
         <%= portfolio_item.body %>

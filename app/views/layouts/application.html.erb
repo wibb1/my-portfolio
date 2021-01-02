@@ -15,15 +15,27 @@
 </head>
 
 <body>
+  <!--div id="background-img"></div-->
+
+  <%= video_tag(
+      'HardDrivePhotojpeg.mp4',
+      id: 'background',
+      autoplay: true,
+      loop: true,
+      muted:true,
+      poster: 'home_bg.png'
+    ) 
+  %>
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
 
     <header class="masthead mb-auto text-center">
 
       <%= render "shared/application_nav" %>
 
     </header>
+
+    
 
     <%= yield %>
 
