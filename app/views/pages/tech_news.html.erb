@@ -1,0 +1,24 @@
+<main role="main" class="inner cover text-center my-5">
+  <blockquote class="blockquote">
+    <h1 class="cover-heading">Tech News</h1>
+    <footer class="blockquote-footer">Latest News from Twitter</footer>
+  </blockquote>
+
+  <div class="row">
+    <% @tweets.each do |tweet| %>
+    <div class='col-md-6'>
+      <div class='tech-news text-dark'>
+        <div class='card'>
+          <%= tweet %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+
+    <p class="lead">
+      <%= link_to "About Me", about_me_path, class: "btn btn-lg btn-secondary" %>
+    </p>
+</main>
+
+
+<%= @tweets.inspect %>
