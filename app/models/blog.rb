@@ -7,6 +7,8 @@ class Blog < ApplicationRecord
 
   belongs_to :topic, optional: true #remove the ", optional: true" later when you add topic to the blog entry
 
+  has_many :comments, dependent: :destroy
+
   def self.special_blogs
     all
   end
