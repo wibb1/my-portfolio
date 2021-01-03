@@ -9,16 +9,13 @@
     <div class='col-md-6'>
       <div class='tech-news text-dark'>
         <div class='card'>
-          <%= tweet %>
+          <%= twitter_parser tweet %>
         </div>
       </div>
     </div>
     <% end %>
-
-    <p class="lead">
-      <%= link_to "About Me", about_me_path, class: "btn btn-lg btn-secondary" %>
-    </p>
+  </div>
+  <p class="lead text-center mt-5">
+    <%= link_to "About Me", about_me_path, class: "btn btn-lg btn-secondary" %>
+  </p>
 </main>
-
-
-<%= @tweets.inspect %>
