@@ -1,0 +1,17 @@
+<div class='card mt-3'>
+  <div class='row no-gutters'>
+    <div class='col-auto'>
+      <%= gravatar_helper comment.user %>
+    </div>
+    <div class='col'>
+      <div class='card-block px-2'>
+        <div class='comment-attributes card-title'>
+          Posted by <b><%= comment.user.name %></b> <%= distance_of_time_in_words(comment.created_at, Time.now) %> ago
+        </div>
+        <p class='card-text'>
+          <%= comment.content %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
