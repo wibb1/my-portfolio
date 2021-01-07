@@ -20,17 +20,16 @@
   <div class="container">
 
     <%= render "shared/blog_masthead" %>
-    <%= render "shared/blog_featured" if current_page?(blogs_path)%>
 
   </div>
 
   <main role="main" class="container">
-    <div class="row">
+
 
       <%= yield %>
 
-      <%= render "shared/blog_sidebar" %>
-    </div>
+
+
     <!-- /.row -->
   </main>
   <!-- /.container -->

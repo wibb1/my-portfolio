@@ -1,0 +1,21 @@
+<div class="col-md-6">
+  <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+      <strong class="d-inline-block mb-2 text-primary"><%= featured_blog.topic.title %></strong> <!-- this would be the language or framework the post is about - corresponding to the links in the nav above -->
+      <h3 class="mb-0"><%= featured_blog.title.titleize %></h3> <!-- title of the post -->
+      <div class="mb-1 text-muted"><%= featured_blog.created_at.strftime("%b %Y") %></div> <!-- date post was published -->
+      <p class="card-text mb-auto">
+        <%= featured_blog.body.first(115) %> ...
+      </p> <!-- a short blurb from the post or about the post maybe a different item in the blog table -->
+      <%= link_to 'Continue reading', featured_blog %>
+    </div>
+    <div class="col-auto d-none d-lg-block">
+      <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail">
+        <!-- a link to an image related to the blogs topic -->
+        <title>Placeholder</title>
+        <rect width="100%" height="100%" fill="#55595c" />
+        <text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text>
+      </svg>
+    </div>
+  </div>
+</div>
