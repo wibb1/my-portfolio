@@ -7,9 +7,8 @@
     <div class="col-md-8 blog-main">
       <%= paginate @blogs %>     
       <%= render @blogs %>
-      <%= paginate @blogs, class: 'blog-pagination' %>
+      <%= paginate @blogs, class: 'pagination' %>
     </div>
     <%= render "shared/blog_sidebar" %>
   </div>
-  <br>
 </main>
