@@ -6,7 +6,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.page(params[:page]).per(5)
+    @blogs = Blog.blogs_filter(current_user.role, params[:page])
     @page_title = "My Portfolio Blog"
     @featured_blogs = Blog.featured.limit(2)
     @topics = Topic.all
