@@ -1,6 +1,7 @@
 class Blog < ApplicationRecord
 
   default_scope { order(created_at: :desc) }
+  scope :user_blogs, -> { where(status: [:published, :featured]) }
 
   enum status: { draft: 0, published: 1, featured: 3 }
   extend FriendlyId 
@@ -20,9 +21,7 @@ class Blog < ApplicationRecord
     if role == :site_admin
       page(params_page).per(5)
     else
-      where(
-        status: [:published, :featured]
-        ).page(params_page).per(5)
+      user_blogs.page(params_page).per(5)
     end
   end
 
