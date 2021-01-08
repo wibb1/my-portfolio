@@ -9,6 +9,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.page(params[:page]).per(5)
     @page_title = "My Portfolio Blog"
     @featured_blogs = Blog.featured.limit(2)
+    @topics = Topic.all
   end
 
   # GET /blogs/1
@@ -18,7 +19,7 @@ class BlogsController < ApplicationController
     @comment = Comment.new
     @page_title = @blog.title
     @seo_keywords += @blog.body
-
+    @topics = Topic.all
   end
 
   # GET /blogs/new
@@ -31,6 +32,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1/edit
   def edit
     @page_title = "Edit the blog"
+    @topics = Topic.all
   end
 
   # POST /blogs
