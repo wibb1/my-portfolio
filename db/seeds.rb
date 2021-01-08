@@ -17,11 +17,24 @@ end
 
 puts "10 blog posts created"
 
+Blog.third.published!
+Blog.fourth.published!
+Blog.fifth.published!
+
+puts "3 blog posts set to published"
+
+Blog.first.featured!
+Blog.second.featured!
+
+puts "2 blog posts set to featured"
+
 5.times do |skill|
   Skill.create!(
   title: "Rails #{skill}",
   percent_utilized: 15)
 end
+
+puts '5 skills created'
 
 8.times do |item|
   Portfolio.create!(
@@ -62,6 +75,8 @@ User.create!(
   roles: "site_admin"
 )
 
+puts "1 default admin user created"
+
 User.create!(
   email: "user@aol.com",
   password: "123456",
@@ -69,4 +84,4 @@ User.create!(
   roles: "user"
 )
 
-puts "default admin and default user created"
+puts "1 default user created"
