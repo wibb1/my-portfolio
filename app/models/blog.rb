@@ -16,4 +16,14 @@ class Blog < ApplicationRecord
     all
   end
 
+  def self.blogs_filter(role, params_page)
+    if role == :site_admin
+      page(params_page).per(5)
+    else
+      where(
+        status: [:published, :featured]
+        ).page(params_page).per(5)
+    end
+  end
+
 end
