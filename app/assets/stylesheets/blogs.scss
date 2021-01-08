@@ -1,11 +1,9 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "gritter";
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:700,900");
 
-.bottom a {
-  color: white;
- }
-
+/*/ Template Styles /*/
  .blog-header {
   line-height: 1;
   border-bottom: 1px solid #e5e5e5;
@@ -74,36 +72,37 @@ h1, h2, h3, h4, h5, h6 {
   .h-md-250 { height: 250px; }
 }
 
-/* Pagination */
-.blog-pagination {
+/*/ Pagination /*/
+.pagination {
   margin-bottom: 4rem;
 }
-.blog-pagination > .btn {
+.pagination > .btn {
   border-radius: 2rem;
 }
 
-/*
- * Blog posts
- */
+ /*/ Blog Posts /*/
+
+ .blog-nav {
+   display: inline-block;
+   white-space: nowrap;
+ }
+
 .blog-post {
   margin-bottom: 4rem;
 }
 .blog-post-title {
+  a {
   margin-bottom: .25rem;
   font-size: 2.5rem;
+}
 }
 .blog-post-meta {
   margin-bottom: 1.25rem;
   color: #999;
 }
 
-.social-links {
-  font-size: 2em;
-}
 
-/*
- * Footer
- */
+/*/ Footer /*/
 .blog-footer {
   padding: 2.5rem 0;
   color: #999;
@@ -116,7 +115,24 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 
+/*/ Custom Styles /*/
+
+h1, h2, h3, h4, h5, h6 {
+  a {
+  color: rgb(95, 95, 100);
+  }
+}
+
+/*/ Blog Posts /*/
+.social-links {
+  font-size: 2em;
+}
+
 .comment-attributes {
   font-style: italic;
   font-size: 0.8em;
 }
+
+.bottom a {
+  color: white;
+ }

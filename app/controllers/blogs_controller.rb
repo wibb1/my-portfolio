@@ -25,6 +25,7 @@ class BlogsController < ApplicationController
   def new
     @blog = Blog.new
     @page_title = "Enter a new blog"
+    @topics = Topic.all
   end
 
   # GET /blogs/1/edit

@@ -10,6 +10,11 @@
     <%= form.text_field :title, class: "form-control", placeholder: 'Title' %>
   </div>
 
+    <div class="form-group">
+    <%= form.label :topic %>
+    <%= form.select :topic, options_from_collection_for_select(@topics, 'id', 'title'), class: "form-control", prompt: 'Select a topic' %>
+  </div>
+
   <div class="form-group">
     <%= form.label :body %>
     <%= form.text_area :body, class: "form-control", rows: 20, placeholder: 'Content' %>
