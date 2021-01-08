@@ -11,6 +11,10 @@ jQuery(document).on 'turbolinks:load', ->
       comments.prepend data['comment']
     send_comment: (comment, blog_id) ->
       @perform 'send_comment', comment: comment, blog_id: blog_id
+  $('.btn').mouseup (e) ->
+    $(this).blur()
+    e.preventDefault()
+    return false
   $('#new_comment').submit (e) ->
     $this = $(this)
     textarea = $this.find('#comment_content')
