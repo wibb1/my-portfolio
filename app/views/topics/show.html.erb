@@ -1,11 +1,26 @@
-<div class="col-md-8 blog-main">
-  <h2><%= @topic.title %></h2>
-  <p>
-    <%= link_to 'Edit', edit_topic_path(@topic) if logged_in?(:site_admin) %> /
-    <%= link_to 'Delete Topic', @topic, method: :delete, data: { confirm: 'Are you sure?' } %>
-  </p>
-  <% @topic.blogs.each do |blog| %>
-  <p><%= blog.title %></p>
-  <% end %>
-
 </div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <%= render "shared/blog_about" %>
+      
+      <h2><%= @topic.title %></h2>
+      <p>
+        <%= link_to 'Edit', edit_topic_path(@topic) if logged_in?(:site_admin) %> /
+        <%= link_to 'Delete Topic', @topic, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p><%= paginate @featured_blogs, class: 'pagination' %>
+    </div>
+    <div class="col-4">
+      <%= render "shared/blog_archives" %>
+<%= render "shared/blog_elsewhere_links" %>
+    </div>
+  </div>
+  
+  <div class="row mb-2">
+    <%= render partial: 'shared/featured_blog', collection: @featured_blogs %>
+  </div>
+  <%= paginate @featured_blogs, class: 'pagination' %>
+
+  </div>
+</main>

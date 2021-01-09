@@ -1,14 +1,13 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-8 blog-main">
-      <%= paginate @topics_paged, class: 'pagination' %>
-      <% @topics_paged.each do |topic| %>
-        <div class="blog-post">
-          <h2 class="blog-post-title"><%= link_to topic.title.titleize, topic %></h2>
-        </div>
-      <% end %>
-      <%= paginate @topics_paged, class: 'pagination' %>
+      <div class="blog-post">
+        <%= render @topics %>
+        <%= paginate @topics_paged, class: 'pagination' %>
+        <%= render partial: 'shared/featured_blog', collection: @topics_paged %>
+        <%= paginate @topics_paged, class: 'pagination' %>
+      </div>
+      <%= render "shared/blog_sidebar" %>
     </div>
-    <%= render "shared/blog_sidebar" %>
   </div>
 </main>

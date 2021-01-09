@@ -13,15 +13,15 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
     @topics = Topic.all
     @page_title = "Topic Show Page"
+    @featured_blogs = Topic.find(params[:id]).blogs.page(params[:page]).per(5)
   end
 
   def index
-    @topics_paged = Topic.page(params[:page]).per(5)
     @topics = Topic.all
     @page_title = "Create Topic"
+
   end
 
   def destroy
@@ -65,6 +65,6 @@ class TopicsController < ApplicationController
   end
 
   def set_topic
-    @blog = Blog.find(params[:id])
+    @topic = Topic.find(params[:id])
   end
 end
