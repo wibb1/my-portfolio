@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'topics/new'
+  get 'topics/edit'
+  get 'topics/show'
+  get 'topics/index'
   resources :comments
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :portfolios, except: [:show] do
