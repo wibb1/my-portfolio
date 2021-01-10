@@ -19,10 +19,9 @@ class Blog < ApplicationRecord
 
   def self.blogs_filter(role, params_page, per)
     if role == :site_admin
-      page_per(params_page, per)
+      page(params_page).per(per)
     else
-      user_blogs.page_per(params_page, per)
+      user_blogs.page(params_page).per(per)
     end
   end
-
 end

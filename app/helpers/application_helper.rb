@@ -92,7 +92,4 @@ end
     js add_gritter(msg, title: "Will Campbell's Portfolio", sticky: false)
   end
 
-  def page_per(params_page, per)
-    page(params_page).per(per)
-  end
 end

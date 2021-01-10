@@ -1,15 +1,15 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_topics, except: [:destroy, :create, :update]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
 
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.blogs_filter(current_user.role, params[:page])
+    @blogs = Blog.blogs_filter(current_user.role, params[:page],5)
     @page_title = "My Portfolio Blog"
     @featured_blogs = Blog.featured.limit(2)
-    @topics = Topic.all
   end
 
   # GET /blogs/1
@@ -19,20 +19,17 @@ class BlogsController < ApplicationController
     @comment = Comment.new
     @page_title = @blog.title
     @seo_keywords += @blog.body
-    @topics = Topic.all
   end
 
   # GET /blogs/new
   def new
     @blog = Blog.new
     @page_title = "Enter a new blog"
-    @topics = Topic.all
   end
 
   # GET /blogs/1/edit
   def edit
     @page_title = "Edit the blog"
-    @topics = Topic.all
   end
 
   # POST /blogs
@@ -89,5 +86,9 @@ class BlogsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def blog_params
       params.require(:blog).permit(:title, :body, :status)
+    end
+
+    def set_topics
+      @topics = Topic.all
     end
 end
