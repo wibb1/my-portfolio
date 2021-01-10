@@ -2,12 +2,11 @@
   <div class="row">
     <div class="col-md-8 blog-main">
       <div class="blog-post">
+        <%= paginate @topics_paged, class: 'pagination' %>
         <%= render @topics %>
         <%= paginate @topics_paged, class: 'pagination' %>
-        <%= render partial: 'shared/featured_blog', collection: @topics_paged %>
-        <%= paginate @topics_paged, class: 'pagination' %>
       </div>
-      <%= render "shared/blog_sidebar" %>
     </div>
+    <%= render "shared/blog_sidebar" %>
   </div>
 </main>

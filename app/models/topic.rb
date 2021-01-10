@@ -7,4 +7,10 @@ class Topic < ApplicationRecord
     raise "Cannot delete topic with blogs" unless blogs.count == 0
     super
   end
+
+  def self.topics_filter(role, params_page, per)
+    page(params_page).per(per)
+  end
+
+  
 end
