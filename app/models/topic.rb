@@ -8,9 +8,9 @@ class Topic < ApplicationRecord
     super
   end
 
-  def self.topics_filter(role, params_page, per)
+  def self.topics_filter(params_page, per)
     page(params_page).per(per)
   end
 
-  
+
 end

@@ -11,17 +11,16 @@ class TopicsController < ApplicationController
 
   def edit
     @page_title = "Edit Topic"
-    @topic = Topic.find(params[:id])
   end
 
   def show
     @page_title = "Topic Detail Page"
-    @featured_blogs = Topic.find(params[:id]).blogs.page(params[:page]).per(5)
+    @featured_blogs = @topic.blogs.blogs_filter(current_user.role, params[:page], 10)
   end
 
   def index
     @page_title = "List of Topics"
-    @topics_paged = Topic.page(params[:page]).per(5)
+    @topics_paged = Topic.topics_filter(params[:page], 5)
 
   end
 
