@@ -1,20 +1,18 @@
 </div>
-<div class="col-md-8 blog-main">
+<main role='main' class='container'>
+  <div class='row'>
+    <div class="col-md-8 blog-main">
 
-  <h2><%= @blog.title %></h2>
+      <%= render @blog %>
 
-  <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %>
+      <%= render 'comments/comment_form' %>
 
-  <p>
-    <%= @blog.body %>
-  </p>
+      <div id="comments" data-blog-id="<%= @blog.id %>">
+        <%= render @blog.comments %>
 
-  <%= render 'comments/comment_form' %>
+      </div>
+    </div>
 
-  <div id="comments" data-blog-id="<%= @blog.id %>">
-    <%= render @blog.comments %>
+    <%= render 'shared/blog_sidebar' %>
   </div>
-
-</div>
-
-<br>
+</main>
