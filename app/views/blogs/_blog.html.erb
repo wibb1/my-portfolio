@@ -4,7 +4,7 @@
     Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago
   </p>
   <%= render partial: 'shared/admin_actions', locals: {blog: blog} %>
-  <p><%= markdown blog.blurb %></p>
+  <p><%= blog.blurb %></p>
   <hr>
   <p><%= markdown blog.body %></p>
 </div>
