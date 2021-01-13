@@ -92,4 +92,33 @@ end
     js add_gritter(msg, title: "Will Campbell's Portfolio", sticky: false)
   end
 
+  def markdown(text)
+    transformed = CodeRayImp.new(
+      filter_html: true, 
+      hard_wrap: true, 
+      prettify: true, 
+      link_attributes: true
+      )
+    
+    markdown_options = {
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      disable_indented_code_blocks: true,
+      superscript: true,
+      underline: true,
+      highlight: true,
+      autolink: true,
+      lax_html_blocks: true
+    }
+
+    markdown_text = Redcarpet::Markdown.new(Redcarpet::Render::HTML, markdown_options)
+    markdown_text.render(text).html_safe
+  end
+
+  class CodeRayImp < Redcarpet::Render::HTML
+    def code_block(code, language)
+      language ||= :plaintext
+      CodeRay.scan(code, language).div(:line_numbers => :table)
+    end
+  end
 end
