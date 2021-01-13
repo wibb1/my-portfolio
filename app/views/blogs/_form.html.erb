@@ -26,15 +26,15 @@
 </div>
 
 <div class="form-group">
-  <%= form.collection_radio_buttons :status, Blog.statuses, :first, :first do |b| %>
+  <%= form.collection_radio_buttons(:status, Blog.statuses, :first, :first) do |b| %>
   <div class="form-check-inline">
-    <%= b.label(class: "form-check-label") { b.radio_button(class: "form-check-input") + b.text } %>
+    <%= b.label(class: "form-check-label") { b.radio_button(class: "form-check-input") + b.text.titleize } %>
   </div>
   <% end %>
 </div>
 
 <div class="form-group">
-  <%= form.submit "Create New Blog", class: "btn btn-dark" %>
+  <%= form.submit "Submit Blog", class: "btn btn-dark" %>
 </div>
 
 <% end %>
