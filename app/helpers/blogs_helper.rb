@@ -32,21 +32,27 @@ module BlogsHelper
       icon = 'exclamation'
       color = 'danger'
     end
-    link_to fa_icon(icon, title: "Current status: #{status.titleize}\nClick to change"), toggle_status_blog_path(blog), class: "btn btn-#{color} fa-2x"
+
+    link_title = "Current status: #{status.titleize}\nClick to change"
+    link_class = "btn btn-#{color} fa-2x"
+    
+    link_to fa_icon(icon, title: link_title), toggle_status_blog_path(blog), class: link_class
   end
 
   def markdown(text)
-    transformed = CodeRayImp.new(
+
+    coderay_options = {
       filter_html: true, 
       hard_wrap: true, 
       prettify: true, 
       link_attributes: true
-      )
+    }
+
+    transformed = CodeRayImp.new(coderay_options)
     
     markdown_options = {
       no_intra_emphasis: true,
       fenced_code_blocks: true,
-      disable_indented_code_blocks: true,
       superscript: true,
       underline: true,
       highlight: true,
@@ -54,7 +60,7 @@ module BlogsHelper
       lax_html_blocks: true
     }
 
-    markdown_text = Redcarpet::Markdown.new(Redcarpet::Render::HTML, markdown_options)
+    markdown_text = Redcarpet::Markdown.new(transformed, markdown_options)
     markdown_text.render(text).html_safe
   end
 
