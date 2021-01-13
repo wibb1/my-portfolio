@@ -36,7 +36,8 @@ class BlogsController < ApplicationController
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
-
+    binding.pry
+    params["blog"]["blurb"].prepend("<h4>") << "</h4>"
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
