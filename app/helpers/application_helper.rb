@@ -89,6 +89,6 @@ end
   end
 
   def alert_generator msg 
-    js add_gritter(msg, title: "Will Campbell's Portfolio", sticky: false, time: 2000)
+    js add_gritter(msg, title: "Will Campbell's Portfolio", sticky: false, time: 1500)
   end
 end
