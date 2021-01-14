@@ -25,10 +25,15 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic.destroy
-    respond_to do |format|
-      format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
-      format.json { head :no_content }
+    if @topic.blogs.count == 0
+      @topic.destroy
+      respond_to do |format|
+        format.html { redirect_to topics_url, notice: 'Topic was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:error] = "Cannot delete topic with blogs"
+      redirect_back(fallback_location: topic_path(@topic))
     end
   end
 
