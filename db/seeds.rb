@@ -15,7 +15,7 @@ puts "3 topics created"
     ```ruby 
     class BlogsChannel < ApplicationCable::Channel
       def subscribed
-        stream_from "blogs_#{params['blog_id']}_channel"
+        stream_from "blogs_#{params["blog_id"]}_channel"
       end
       
       def unsubscribed
@@ -23,7 +23,7 @@ puts "3 topics created"
       
       def send_comment(data)
       current_user.comments.create!(
-        content: data['comment'], blog_id: data['blog_id']
+        content: data["comment"], blog_id: data["blog_id"]
         )
       end
     end
@@ -59,6 +59,7 @@ puts '5 skills created'
   Portfolio.create!(
   title: "Portfolio Title #{item}",
   subtitle: "Ruby on Rails",
+  blurb: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   #main_image: Rails.root.join("app/assets/images/default_main_image.png").open,
   #thumb_image: Rails.root.join("app/assets/images/default_thumb_image.png").open
@@ -71,6 +72,7 @@ puts "8 portfolio items created with Ruby on Rails subtitle"
   Portfolio.create!(
   title: "Portfolio Title #{item}",
   subtitle: "Angular",
+  blurb: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   #main_image: Rails.root.join("app/assets/images/default_main_image.png").open,
   #thumb_image: Rails.root.join("app/assets/images/default_thumb_image.png").open
