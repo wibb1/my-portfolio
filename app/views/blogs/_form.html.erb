@@ -17,7 +17,13 @@
 
 <div class="form-group">
   <%= form.label :topic %>
-  <%= form.collection_select :topic_id, Topic.all, :id, :title, class: "form-control", prompt: 'Select a topic' %>
+  <%= form.collection_select(:topic_id, Topic.all, :id, :title, 
+              {
+                selected: blog.topic.id,
+                include_blank: true
+              },
+              class: "form-control", prompt: 'Select a topic'
+              ) %>
 </div>
 
 <div class="form-group">
