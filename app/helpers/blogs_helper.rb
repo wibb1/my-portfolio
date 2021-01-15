@@ -39,8 +39,14 @@ module BlogsHelper
     link_to fa_icon(icon, title: link_title), toggle_status_blog_path(blog), class: link_class
   end
 
-  def markdown(text)
+  class CodeRayImp < Redcarpet::Render::HTML
+    def block_code(code, language)
+      language ||= :plaintext
+      CodeRay.scan(code, language).div
+    end
+  end
 
+  def markdown(text)
     coderay_options = {
       filter_html: true, 
       hard_wrap: true, 
@@ -64,10 +70,4 @@ module BlogsHelper
     markdown_text.render(text).html_safe
   end
 
-  class CodeRayImp < Redcarpet::Render::HTML
-    def code_block(code, language)
-      language ||= :plaintext
-      CodeRay.scan(code, language).div
-    end
-  end
 end
