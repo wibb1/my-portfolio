@@ -2,7 +2,7 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:edit, :update, :show, :destroy]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit]}, site_admin: :all
-  before_action :set_topics, except: [:destroy, :create, :update]
+  before_action :set_header_topics, except: [:destroy, :create, :update]
 
   def new
     @topic = Topic.new
@@ -19,6 +19,7 @@ class TopicsController < ApplicationController
   end
 
   def index
+    @topics = Topic.all
     @page_title = "List of Topics"
     @topics_paged = Topic.topics_filter(params[:page], 5)
 
@@ -73,8 +74,8 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
   end
 
-  def set_topics
-    @topics = Topic.all
+  def set_header_topics
+    @header_topics = Topic.with_blogs
   end
 
 end

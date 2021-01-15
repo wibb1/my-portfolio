@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_topics, except: [:destroy, :create, :update]
+  before_action :set_header_topics, except: [:update, :create, :destroy, :toggle_status]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -91,7 +91,7 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(:title, :body, :status, :topic_id, :blurb)
     end
 
-    def set_topics
-      @topics = Topic.all
+    def set_header_topics
+      @header_topics = Topic.with_blogs
     end
 end
