@@ -1,2 +1,11 @@
-<h2 class="blog-post-title"><%= link_to topic.title.titleize, topic %></h2>
-
+<div class="row border-bottom m-3 p-3">
+  <div class="col">
+    <h2><%= link_to topic.title, topic %></h2>
+  </div>
+  <% if logged_in? :site_admin %>
+  <div class="col-3-right">
+    <%= link_to fa_icon('edit', title: 'Edit Topic'), edit_topic_path(topic), class: 'btn btn-primary' %>
+    <%= link_to fa_icon('trash', title: 'Delete Topic'), topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  </div>
+  <% end %>
+</div>

@@ -1,4 +1,5 @@
 <nav class="nav blog-nav">
   <%= application_helper_nav('pr-3 text-muted', 'span') %>
-  <span><%= link_to 'New Blog Entry', new_blog_path, class: "text-muted" if logged_in?(:site_admin) %></span>
+  <span><%= link_to 'New Blog', new_blog_path, class: " pr-3 text-muted" if logged_in?(:site_admin) %></span>
+  <span><%= link_to 'New Topic', new_topic_path, class: "text-muted" if logged_in?(:site_admin) %></span>
 </nav>
