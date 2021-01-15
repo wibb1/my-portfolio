@@ -10,26 +10,32 @@ puts "3 topics created"
   Blog.create!(
     title: "My Blog Post #{blog}",
     blurb: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    body: '<h3>Lorem Ut Duis</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>
+    body: '#Lorem Ut Duis
 
-    ```ruby 
+    ##Lorem ipsum dolor sit amet
+    
+    Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<p>
+    
+    ```ruby
     class BlogsChannel < ApplicationCable::Channel
       def subscribed
         stream_from "blogs_#{params["blog_id"]}_channel"
       end
-      
+    
       def unsubscribed
       end
-      
+    
       def send_comment(data)
-      current_user.comments.create!(
-        content: data["comment"], blog_id: data["blog_id"]
-        )
-      end
+        current_user.comments.create!(
+          content: data["comment"], blog_id: data["blog_id"]
+          )
+        end
     end
     ```
-      
-    <h6>Nunc Vestibulum</h6><p>Proin sodales feugiat massa, eget faucibus magna tempus ut. Aliquam rhoncus sit amet neque eget pharetra. Etiam luctus augue augue, ut sagittis quam elementum a. Vivamus quis ante at odio volutpat semper. Duis a lectus venenatis, porttitor diam at, vestibulum dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae nisl sed enim vulputate maximus. Vestibulum nec nulla convallis, faucibus orci vel, pharetra urna. Nulla vel lorem sollicitudin augue scelerisque porta. Aliquam erat volutpat.</p>',
+    
+    ###Nunc Vestibulum
+    
+    Proin sodales feugiat massa, eget faucibus magna tempus ut. Aliquam rhoncus sit amet neque eget pharetra. Etiam luctus augue augue, ut sagittis quam elementum a. Vivamus quis ante at odio volutpat semper. Duis a lectus venenatis, porttitor diam at, vestibulum dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae nisl sed enim vulputate maximus. Vestibulum nec nulla convallis, faucibus orci vel, pharetra urna. Nulla vel lorem sollicitudin augue scelerisque porta. Aliquam erat volutpat.',
     topic_id: Topic.last.id
   )
 end
