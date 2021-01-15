@@ -1,0 +1,7 @@
+<% if logged_in? :site_admin %>
+  <div class='btn-group btn-group-toggle' data-toggle='buttons'>
+    <%= button_helper(blog.status, blog) %>
+    <%= link_to fa_icon('edit', title: 'Edit Post'), edit_blog_path(blog), class: 'btn btn-primary fa-2x' %>
+    <%= link_to fa_icon('trash', title: 'Delete Post'), blog, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger fa-2x' %>
+  </div>
+<% end %>

@@ -1,21 +1,40 @@
 <%= form_for(blog) do |form| %>
-  <% if blog.errors.any? %>
-    <% blog.errors.full_messages.each do |error| %>
-      <%= alert_generator error %>
-    <% end %>
+<% if blog.errors.any? %>
+<% blog.errors.full_messages.each do |error| %>
+<%= alert_generator error %>
+<% end %>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :title %>
+  <%= form.text_field :title, class: "form-control", placeholder: 'Title' %>
+</div>
+
+<div class="form-group">
+  <%= form.label :blurb, 'A short description (limited to 110 characters)' %>
+  <%= form.text_area :blurb, class: "form-control", rows: 2, placeholder: 'Blurb', maxlength: 110 %>
+</div>
+
+<div class="form-group">
+  <%= form.label :topic %>
+  <%= form.collection_select :topic_id, Topic.all, :id, :title, class: "form-control", prompt: 'Select a topic' %>
+</div>
+
+<div class="form-group">
+  <%= form.label :body %>
+  <%= form.text_area :body, class: "form-control", rows: 20, placeholder: 'Content' %>
+</div>
+
+<div class="form-group">
+  <%= form.collection_radio_buttons(:status, Blog.statuses, :first, :first) do |b| %>
+  <div class="form-check-inline">
+    <%= b.label(class: "form-check-label") { b.radio_button(class: "form-check-input") + b.text.titleize } %>
+  </div>
   <% end %>
+</div>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: "form-control", placeholder: 'Title' %>
-  </div>
+<div class="form-group">
+  <%= form.submit "Submit Blog", class: "btn btn-dark" %>
+</div>
 
-  <div class="form-group">
-    <%= form.label :body %>
-    <%= form.text_area :body, class: "form-control", rows: 20, placeholder: 'Content' %>
-  </div>
-
-  <div class="form-group">
-    <%= form.submit "Create New Blog", class: "btn btn-dark" %>
-  </div>
 <% end %>

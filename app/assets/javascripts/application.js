@@ -21,5 +21,7 @@
 //= require html.sortable
 //= require cocoon
 //= require gritter
+//= require gritter.options
 //= require cable
+//= require pages
 //= require_tree .

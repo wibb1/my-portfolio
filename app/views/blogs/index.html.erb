@@ -1,7 +1,15 @@
-<div class="col-md-8 blog-main">
-  <%= paginate @blogs %>
-  <%= render @blogs %>
-  <%= paginate @blogs %>
+<div class='container'>
+  <div class="row mb-2">
+    <%= render partial: 'shared/featured_blog', collection: @featured_blogs %>
+  </div>
 </div>
-
-<br>
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <%= paginate @blogs, class: 'pagination' %>
+      <%= render @blogs %>
+      <%= paginate @blogs, class: 'pagination' %>
+    </div>
+    <%= render "shared/blog_sidebar" %>
+  </div>
+</main>

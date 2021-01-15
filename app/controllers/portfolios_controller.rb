@@ -36,7 +36,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolios_path, notice: "Your portfolio item is now live." }
+        format.html { redirect_to portfolio_path(@portfolio_item), notice: "Portfolio successfully amended." }
       else
         format.html { render :new }
       end
@@ -49,7 +49,7 @@ class PortfoliosController < ApplicationController
   def update
      respond_to do |format|
       if @portfolio_item.update(portfolio_params)
-        format.html { redirect_to portfolios_path, notice: "Your portfolio item has been updated." }
+        format.html { redirect_to portfolios_path, notice: "Portfolio has been updated." }
       else
         format.html { render :edit }
       end
@@ -60,7 +60,7 @@ class PortfoliosController < ApplicationController
     @portfolio_item.destroy
 
     respond_to do |format| 
-      format.html { redirect_to portfolios_path, notice: "Porfolio was removed" }
+      format.html { redirect_to portfolios_path, notice: "Porfolio item was removed" }
     end
   end
 
@@ -69,6 +69,7 @@ class PortfoliosController < ApplicationController
   def portfolio_params
     params.require(:portfolio).permit(:title,
                                       :subtitle,
+                                      :blurb,
                                       :body,
                                       :main_image,
                                       :thumb_image,

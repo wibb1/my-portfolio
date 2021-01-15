@@ -1,19 +1,15 @@
 <div class="col-md-4">
   <div class="card mb-4 shadow-sm" data-id="<%= portfolio_item.id %>">
-    <%= image_tag portfolio_img(portfolio_item.thumb_image, "thumb") %>
-    <span> <%= link_to portfolio_item.title, portfolio_show_path(portfolio_item)%> </span> <%= portfolio_item.subtitle %>
-    
-    <rect width="100%" height="100%" fill="#55595c" />
-    
-    </svg>
-
+    <%= image_tag portfolio_img(portfolio_item.thumb_image, "thumb"), class: "portfolio_image" %>
     <div class="card-body">
+      <p class="card-title"> <%= link_to portfolio_item.title, portfolio_show_path(portfolio_item)%> </p>
+      <p class="card-subtitle"><%= portfolio_item.subtitle %></p>
       <p class="card-text">
-        <%= portfolio_item.body %>
+        <%= portfolio_item.blurb %>
       </p>
       <div class="d-flex justify-content-between align-items-center">
-      <% if logged_in?(:site_admin) %>
-        <div class="btn-group"> 
+        <% if logged_in?(:site_admin) %>
+        <div class="btn-group">
           <button type="button" class="btn btn-sm btn-outline-secondary">
             <%= link_to "Edit", edit_portfolio_path(portfolio_item) %>
           </button>

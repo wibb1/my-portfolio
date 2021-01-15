@@ -2,6 +2,8 @@
 @import "jquery-ui";
 @import "gritter";
 
+
+/*/ Theme styles /*/
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -53,8 +55,14 @@ footer p {
   user-select: none;
 }
 
-//===  Custom Styles ===
+/*/  Custom Styles /*/
 
 .portfolio-container {
   padding-top: 10px;
+}
+
+.portfolio_image {
+  width:"100%";
+  height:"100%";
+  fill:"#55595c";
 }

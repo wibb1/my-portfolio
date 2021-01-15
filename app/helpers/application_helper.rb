@@ -91,5 +91,4 @@ end
   def alert_generator msg 
     js add_gritter(msg, title: "Will Campbell's Portfolio", sticky: false)
   end
-
 end
