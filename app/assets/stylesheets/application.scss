@@ -147,3 +147,11 @@ body {
     color: blue;
   }
 }
+
+.app-card-container {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  .card {
+    padding: 3rem;
+  }
+}
