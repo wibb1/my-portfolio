@@ -1,22 +1,24 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-lg-10 col-md-8">
+
       <%= render "shared/blog_about" %>
+
     </div>
     <div class="col-2">
+
       <%= render "shared/blog_elsewhere_links" %>
+
     </div>
-    </div>
-  </div>  
-  
-      <%= render @topic %>
- 
-  
-  <div class="row mb-2">
-<%= paginate @featured_blogs, class: 'pagination' %>
-    <%= render partial: 'shared/featured_blog', collection: @featured_blogs %>
   </div>
-  <%= paginate @featured_blogs, class: 'pagination' %>
+
+  <%= render @topic %>
+
+  <div class="row mb-2">
+
+    <%= paginate @featured_blogs, class: 'pagination' %>
+    <%= render partial: 'shared/featured_blog', collection: @featured_blogs %>
+    <%= paginate @featured_blogs, class: 'pagination' %>
 
   </div>
 </main>

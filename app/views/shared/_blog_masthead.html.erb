@@ -3,20 +3,22 @@
     <div class="d-flex flex-nowrap align-items-center">
       <div class="col-auto d-flex align-items-center p-0 flex-grow-1">
         <div class="nav">
+
           <%= render "shared/blog_nav" %>
+
         </div>
       </div>
-
       <div class="col-auto d-flex justify-content-end align-items-center p-0 flex-grow-1">
         <a class="text-muted" href="#" aria-label="Search">
           <svg class="m-auto" width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <title>Search</title>
             <circle cx="10.5" cy="10.5" r="7.5" />
             <path d="M21 21l-5.2-5.2" />
-
           </svg>
         </a>
+
         <%= application_helper_login "ml-1 btn btn-sm btn-outline-secondary", "span" %>
+        
       </div>
     </div>
   </header>
