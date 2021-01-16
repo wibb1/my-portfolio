@@ -1,13 +1,20 @@
-
 <main role='main' class='container'>
   <div class='row'>
     <div class="col-md-8 blog-main">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to "Home", root_path, class: "breadcrumb-item" %></li>
+          <li class="breadcrumb-item"><%= link_to @blog.topic.title, topic_path(@blog.topic), class: "breadcrumb-item" %></li>
+          <li class="breadcrumb-item active" aria-current="page"><%= @blog.title %></li>
+        </ol>
+      </nav>
 
       <%= render @blog %>
 
       <%= render 'comments/comment_form' %>
 
       <div id="comments" data-blog-id="<%= @blog.id %>">
+
         <%= render @blog.comments %>
 
       </div>
