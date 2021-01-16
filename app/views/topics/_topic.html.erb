@@ -3,9 +3,10 @@
     <h2><%= link_to topic.title, topic %></h2>
   </div>
   <% if logged_in? :site_admin %>
-  <div class="col-3-right">
-    <%= link_to fa_icon('edit', title: 'Edit Topic'), edit_topic_path(topic), class: 'btn btn-primary' %>
-    <%= link_to fa_icon('trash', title: 'Delete Topic'), topic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+  <div class="col-3-right align-text-center">
+
+    <%= render partial: 'shared/admin_actions', locals: { end_title: 'Topic', edit_path: edit_topic_path(topic), data_passed: topic } %>
+
   </div>
   <% end %>
 </div>
