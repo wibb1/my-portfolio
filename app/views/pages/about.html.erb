@@ -324,6 +324,37 @@
       </div>
     </div>
     <!-- first accodian card 4 -->
+
+    <!-- first accordian card 5 -->
+    <div class='card bg-secondary'>
+      <div class="card-header" id="headingFive">
+        <h5 class="mb-0">
+          <button class="btn btn-block btn-outline-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseFive' aria-expanded='false' aria-controls='collapseFive'>
+            Skills
+          </button>
+      </div>
+      <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+        <div class='card-body'>
+          <div class='row'>
+            <div class='col'>
+              <% @skills.each do |skill| %>
+                <h5><%= skill.title %></h5>
+                <div class='progress'>
+                  <div 
+                    class="progress-bar progress-bar-striped bg-warning"
+                    role="progressbar"
+                    aria-valuenow="<%= skill.percent_utilized %>"
+                    aria-valumax="100"
+                    style="width: <%=skill.percent_utilized %>%">
+                  </div>
+                </div>  
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- first accordian card 5 -->
   </div>
   <!-- first accodian -->
 </main>
