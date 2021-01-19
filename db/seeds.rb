@@ -33,7 +33,7 @@ end
 ```
 
 ###Nunc Vestibulum
-Proin sodales feugiat massa, eget faucibus magna tempus ut. Aliquam rhoncus sit amet neque eget pharetra. Etiam luctus augue augue, ut sagittis quam elementum a. Vivamus quis ante at odio volutpat semper. Duis a lectus venenatis, porttitor diam at, vestibulum dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae nisl sed enim vulputate maximus. Vestibulum nec nulla convallis, faucibus orci vel, pharetra urna. Nulla vel lorem sollicitudin augue scelerisque porta. Aliquam erat volutpat.',
+Proin sodales feugiat massa, eget faucibus magna tempus ut. Aliquam rhoncus sit amet neque eget pharetra. Etiam luctus augue augue, ut sagittis quam elementum a. Vivamus quis ante at odio volutpat semper. Duis a lectus venenatis, porttitor diam at, vestibulum dolor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec vitae nisl sed enim vulputate maximus. Vestibulum nec nulla convallis, faucibus orci vel, pharetra urna. Nulla vel lorem sollicitudin augue scelerisque porta. Aliquam erat volutpat.', #the lack of indentation here is so the information is rendered corretly in the app
     topic_id: Topic.last.id
   )
 end
