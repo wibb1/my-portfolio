@@ -30,9 +30,15 @@
       $this = $(this);
       textarea = $this.find('#comment_content');
       trimedTextarea = $.trim(textarea.val());
-      if (trimedTextarea.length > 1) {
+      if (trimedTextarea.length > 4) {
         App.global_chat.send_comment(trimedTextarea, comments.data('blog-id'));
         textarea.val('');
+      } else {
+        $.gritter.add({
+          title: "Will Campbell's Portfolio",
+          text: "The comment must be at least 4 characters long without spaces.",
+          sticky: false,
+        })
       }
       e.preventDefault();
       return false;
