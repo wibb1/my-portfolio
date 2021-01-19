@@ -1,5 +1,6 @@
 @import "bootstrap";
 @import "gritter";
+/*@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Roboto&display=swap');*/
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -39,6 +40,15 @@ a:hover {
 
 
 /*/ Base structure /*/
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  font-family: 'Merriweather+Sans', sans-serif;
+}
 
 html,
 body {
