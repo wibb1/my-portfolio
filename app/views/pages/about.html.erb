@@ -1,15 +1,329 @@
 <main role="main" class="app-card-container">
-  <div class='card bg-secondary'>
-  <h1 class="text-center mb-4">About Me</h1>
-  <div class="text-justify">
-    <%= image_tag "Headshot.jpg", width: 250, alt: "Picture of me", :class=>"ml-4 rounded float-right" %><p>Attempting a career change after working for 20 years was not an easy decision. I previously developed a great career in the environmental field; mainly helping energy and industrial clients or employers to comply with environmental regulations. I led multidisciplinary cross functional engineering teams to develop large power generation projects and participated in small in-house teams that made great strides in cost control through optimization. I designed complete emission calculation and recordkeeping systems to ensure compliance with environmental requirements at multiple facilities, integrating those systems with existing electronic recordkeeping systems wherever possible. I worked with clients to maintain or expand production capacity while assuring compliance with environmental laws. I also negotiated permit requirements with the regulatory agencies on behalf of clients or employers. In addition, I have managed project budgets and balanced client needs and expectations, ensuring project profitability and client satisfaction.</p>
 
-    <p>However, over the last 10 years the expatriation of manufacturing facilities has accelerated, and power generation has shifted toward renewable energy generation technologies, reducing the demand for my existing skills. This is why I began considering a new career.</p>
+  <!-- first accodian -->
+  <div class='accordion' id="accordion">
 
-    <p>As a result of that contemplation, I joined Launch Academy, an immersive web developer training program. Launch is a full stack development training program originally designed as an onsite learning academy; however, with the advent of COVID-19 we were forced to complete the program remotely. This has prepared me well for the current remote working conditions. During my time at Launch Academy, I built my knowledge of Ruby on Rails and JavaScript and further developed my experience with relational databases. The techniques taught at Launch Academy are well aligned with the way software is built. </p>
+    <!-- first accodian card 1 -->
+    <div class="card bg-secondary">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-block btn-outline-light btn-lg" type="button" data-toggle='collapse' data-target='#collapseOne' aria-expanded='true' aria-controls='collapseOne'>
+            About Me
+          </button>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body text-justify">
+          <%= image_tag "Headshot.jpg", width: 250, alt: "Picture of me", :class=>"ml-4 rounded float-right" %><p>Attempting a career change after working for 20 years was not an easy decision. I previously developed a great career in the environmental field; mainly helping energy and industrial clients or employers to comply with environmental regulations. I led multidisciplinary cross functional engineering teams to develop large power generation projects and participated in small in-house teams that made great strides in cost control through optimization. I designed complete emission calculation and recordkeeping systems to ensure compliance with environmental requirements at multiple facilities, integrating those systems with existing electronic recordkeeping systems wherever possible. I worked with clients to maintain or expand production capacity while assuring compliance with environmental laws. I also negotiated permit requirements with the regulatory agencies on behalf of clients or employers. In addition, I have managed project budgets and balanced client needs and expectations, ensuring project profitability and client satisfaction.</p>
 
-    <p>I welcome the challenges that will come with delving into a new field, and I continue to learn new techniques, frameworks and languages utilizing online learning tools. I understand that I am taking on a new and very different occupation but look forward to building another great career over the next 20 years.</p>
+          <p>However, over the last 10 years the expatriation of manufacturing facilities has accelerated, and power generation has shifted toward renewable energy generation technologies, reducing the demand for my existing skills. This is why I began considering a new career.</p>
 
-    <p>I would love to share more about my background with you and I look forward to showing you exactly why you should hire me!</p>
+          <p>As a result of that contemplation, I joined Launch Academy, an immersive web developer training program. Launch is a full stack development training program originally designed as an onsite learning academy; however, with the advent of COVID-19 we were forced to complete the program remotely. This has prepared me well for the current remote working conditions. During my time at Launch Academy, I built my knowledge of Ruby on Rails and JavaScript and further developed my experience with relational databases. The techniques taught at Launch Academy are well aligned with the way software is built. </p>
+
+          <p>I welcome the challenges that will come with delving into a new field, and I continue to learn new techniques, frameworks and languages utilizing online learning tools. I understand that I am taking on a new and very different occupation but look forward to building another great career over the next 20 years.</p>
+
+          <p>I would love to share more about my background with you and I look forward to showing you exactly why you should hire me!</p>
+
+        </div>
+      </div>
+    </div>
+    <!-- first accodian card 1 -->
+
+    <!-- first accodian card 2 -->
+    <div class='card bg-secondary'>
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-block btn-outline-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseTwo' aria-expanded='false' aria-controls='collapseTwo'>
+            Job History
+          </button>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class='card-body'>
+
+          <!-- begin second Accordian -->
+
+          <div class='accordion' id="accordionTwo">
+
+            <!-- second Accodian card 1 -->
+            <div class="card bg-secondary">
+              <div class="card-header" id="headingTwoOne">
+                <h3 class="mb-0 text-light">
+                  <button class="btn btn-block btn-light btn-lg" type="button" data-toggle='collapse' data-target='#collapseTwoOne' aria-expanded='false' aria-controls='collapseTwoOne'>
+                    Apprentice Full Stack Developer
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwoOne" class="collapse show" aria-labelledby="headingTwoOne" data-parent="#accordionTwo">
+                <div class='card-body'>
+                  <div class='row'>
+                    <div class=col>
+                      <h5>Launch Academy - Boston, MA</h5>
+                    </div>
+                    <div class='col-5 text-right'>
+                      <h5> April 2020 - August 2020</h5>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <div class=col>
+
+                    </div>
+                  </div>
+                  <hr>
+                  <div class='row'>
+                    <ul>
+                      <li>Successfully navigated Launch Academy’s challenge-based curriculum which stresses collaborative learning using a read-see-do process.</li>
+                      <li>Developed experience with languages such as JavaScript, React, Sinatra, and Ruby on Rails.</li>
+                      <li>Extensively utilized pair programming, student-led instruction, and text-driven development.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- second accodian card 1 -->
+
+            <!-- second accodian card 2 -->
+            <div class="card bg-secondary">
+              <div class="card-header" id="headingTwoTwo">
+                <h3 class="mb-0">
+                  <button class="btn btn-block btn-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseTwoTwo' aria-expanded='false' aria-controls='collapseTwoTwo'>
+                    Senior Project Manager
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwoTwo" class="collapse" aria-labelledby="headingTwoTwo" data-parent="#accordionTwo">
+                <div class='card-body'>
+                  <div class="row">
+                    <div class=col>
+                      <h5>Tetra Tech Inc. - Westford, MA</h5>
+                    </div>
+                    <div class='col-5 text-right'>
+                      <h5>April 2018 - March 2020</h5>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class='row'>
+                    <div class=col>
+                      <ul>
+                        <li>Provided project management for complex environmental permit applications, including project support and internal staff supervision to ensure adherence to project timelines and budgets, onsite teams coordination, permit application development, client coordination, and permit negotiation with the regulatory authority.</li>
+                        <li>Managed projects to ensure that clients received quality services, client relationships were fostered and developed, monthly billing was completed accurately, and budgets were adhered to, and regular client and regulator coordination and management of change meetings/updates to avoid project overruns.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- second accodian card 2 -->
+
+            <!-- second accodian card 3 -->
+            <div class="card bg-secondary">
+              <div class="card-header" id="headingTwoThree">
+                <h3 class="mb-0">
+                  <button class="btn btn-block btn-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseTwoThree' aria-expanded='false' aria-controls='collapseTwoThree'>
+                    Environmental Scientist
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwoThree" class="collapse" aria-labelledby="headingTwoThree" data-parent="#accordionTwo">
+                <div class='card-body'>
+                  <div class='row'>
+                    <div class=col>
+                      <h5>Covanta SEMASS - Wareham, MA</h5>
+                    </div>
+                    <div class='col-5 text-right'>
+                      <h5>April 2008 - April 2018</h5>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class='row'>
+                    <div class=col>
+                      <ul>
+                        <li>Completed a complete redesign of the environmental reporting system utilizing reports from the company databases to compile Excel based reports. Filed more than 200 reports and documents per year to regulatory agencies requiring extensive calculations and documentation.</li>
+                        <li>Completed client-side management of seven major environmental projects ranging from the replacement of the facilities auxiliary fuel burners to the permitting of a pilot chemical plant attempting to further waste to distillate oil production technologies.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- second accodian card 3 -->
+
+            <!-- second accodian card 4 -->
+            <div class="card bg-secondary">
+              <div class="card-header" id="headingTwoFour">
+                <h3 class="mb-0">
+                  <button class="btn btn-block btn-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseTwoFour' aria-expanded='false' aria-controls='collapseTwoFour'>
+                    Corporate EH&S Engineer
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwoFour" class="collapse" aria-labelledby="headingTwoFour" data-parent="#accordionTwo">
+                <div class='card-body'>
+                  <div class='row'>
+                    <div class=col>
+                      <h5>Bose Corporation - Framingham, MA</h5>
+                    </div>
+                    <div class='col-5 text-right'>
+                      <h5>May 2006 - April 2008</h5>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class='row'>
+                    <div class=col>
+                      <ul>
+                        <li>Environmental, health and safety oversight during rebuild of a 50,000 gpd wastewater treatment plant at the Stowe campus.</li>
+                        <li>Developed new environmental, health, and safety corporate intranet sites.</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- second accodian card 4 -->
+
+            <!-- second accodian card 5 -->
+            <div class="card bg-secondary">
+              <div class="card-header" id="headingTwoFive">
+                <h3 class="mb-0">
+                  <button class="btn btn-block btn-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseTwoFive' aria-expanded='false' aria-controls='collapseTwoFive'>
+                    Environmental Scientist
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwoFive" class="collapse" aria-labelledby="headingTwoFive" data-parent="#accordionTwo">
+                <div class='card-body'>
+                  <div class='row'>
+                    <div class=col>
+                      <h5>ESS Group - Wellesley, MA</h5>
+                    </div>
+                    <div class='col-5 text-right'>
+                      <h5>1999-2006 </h5>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <div class=col>
+                      <ul>
+                        <li>Provide support for clients and manage clients to ensure that they were
+                          satisfied and would continue to utilize our services</li>
+                        <li>Provide regulatory interpretation to clients to reduce regulatory burden and
+                          dispute regulatory audit findings</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- second accodian card 5 -->
+
+            <!-- second accodian card 6 -->
+            <div class="card bg-secondary">
+              <div class="card-header" id="headingTwoSix">
+                <h3 class="mb-0">
+                  <button class="btn btn-block btn-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseTwoSix' aria-expanded='false' aria-controls='collapseTwoSix'>
+                    Safety and Applications Engineer
+                  </button>
+                </h3>
+              </div>
+              <div id="collapseTwoSix" class="collapse" aria-labelledby="headingTwoSix" data-parent="#accordionTwo">
+                <div class='card-body'>
+                  <div class='row'>
+                    <div class=col>
+                      <h5>Battery Engineering - Canton, MA</h5>
+                    </div>
+                    <div class='col-5 text-right'>
+                      <h5>1997-1999</h5>
+                    </div>
+                  </div>
+                  <div class='row'>
+                    <div class=col>
+                      <ul>
+                        <li>Trained and led the facility emergency response team</li>
+                        <li>Provide health and safety compliance support to manufacturing facility
+                          utilizing large amounts of hazardous materials</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- second accodian card 6 -->
+          </div>
+          <!-- end second Accordian -->
+        </div>
+      </div>
+    </div>
+    <!-- first accodian card 2 -->
+
+    <!-- first accodian card 3 -->
+    <div class='card bg-secondary'>
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-block btn-outline-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseThree' aria-expanded='false' aria-controls='collapseThree'>
+            Education
+          </button>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class='card-body'>
+          <div class='row'>
+            <div class='col'>
+              <h4>Apprentice Full Stack Developer<h4>
+            </div>
+            <div class='col-2 text-right'>
+              <h5>2020</h5>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <h5>Launch Academy - Boston, MA</h5>
+            </div>
+          </div>
+        </div>
+
+        <div class='card-body'>
+          <div class='row'>
+            <div class='col'>
+              <h4>BS Environmental Science</h4>
+            </div>
+            <div class='col-2 text-right'>
+              <h5>1997<h5>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <h5>University of Massachusetts - Amherst<h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- first accodian card 3 -->
+
+    <!-- first accodian card 4 -->
+    <div class='card bg-secondary'>
+      <div class="card-header" id="headingFour">
+        <h5 class="mb-0">
+          <button class="btn btn-block btn-outline-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseFour' aria-expanded='false' aria-controls='collapseFour'>
+            Volunteer
+          </button>
+      </div>
+      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+        <div class='card-body'>
+          <div class='row'>
+            <div class='col'>
+              <h4>Board Member - Raynham Conservation Commission</h4>
+            </div>
+            <div class='col-2 text-right'>
+              <h5>2016-2020<h5>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <p>Raynham, MA</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- first accodian card 4 -->
   </div>
+  <!-- first accodian -->
 </main>

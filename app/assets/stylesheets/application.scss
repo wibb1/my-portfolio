@@ -152,6 +152,9 @@ body {
   margin-top: 3rem;
   margin-bottom: 3rem;
   .card {
-    padding: 3rem;
+    padding: 0rem;
+    .collapse > .card-body{
+      padding: 1rem, 2rem, 2rem, 1rem;
+    }
   }
 }
