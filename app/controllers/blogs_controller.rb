@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  before_action :set_topics, except: [:destroy, :create, :update]
+  before_action :set_header_topics, except: [:update, :create, :destroy, :toggle_status]
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -15,10 +15,14 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id]) 
-    @comment = Comment.new
-    @page_title = @blog.title
-    @seo_keywords += @blog.body
+    if logged_in?(:site_admin) || @blog.published? || @blog.featured?
+      @blog = Blog.includes(:comments).friendly.find(params[:id]) 
+      @comment = Comment.new
+      @page_title = "Blog Detail Page"
+      @seo_keywords += @blog.body
+    else
+      redirect_to blogs_path, notice: "You are not authorized to access this page"
+    end
   end
 
   # GET /blogs/new
@@ -87,7 +91,7 @@ class BlogsController < ApplicationController
       params.require(:blog).permit(:title, :body, :status, :topic_id, :blurb)
     end
 
-    def set_topics
-      @topics = Topic.all
+    def set_header_topics
+      @header_topics = Topic.with_blogs
     end
 end

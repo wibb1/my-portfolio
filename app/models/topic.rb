@@ -7,5 +7,7 @@ class Topic < ApplicationRecord
     page(params_page).per(per)
   end
 
-
+  def self.with_blogs 
+    includes(:blogs).where.not(blogs: { id: nil })
+  end
 end
