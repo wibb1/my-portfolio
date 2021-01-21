@@ -1,19 +1,38 @@
-<main role="main" class="inner cover text-center my-5">
-  <blockquote class="blockquote">
-    <h1 class="cover-heading">Tech News</h1>
-    <footer class="blockquote-footer">Latest News from Twitter</footer>
-  </blockquote>
+<main role="main" class="inner cover my-5">
+
+  <h1 class="cover-heading">Tech News</h1>
 
   <div class="row">
-    <% @tweets.each do |tweet| %>
     <div class='col-md-6'>
+      <blockquote class="blockquote">
+        <h3 class="cover-heading text-center">Latest News</h3>
+      </blockquote>
+      <div class='tech-news text-dark'>
+        <% @user_search_results.each do |article| %>
+          <blockquote class='blockquote'>
+            <h4 class='cover-heading text-center'><%= article['title'] %></h4>
+            <footer class='blockquote-footer'>From: <%= article['source']['name'] %> By: <%= article['author'] %> <a href=<%= article['url'] %>>Link</a><footer>
+          <blockquote>
+
+            <p><%= article['description'] %></p>
+            <%= article['urlToImage'] %>
+            <%= article['publishedAt'] %>
+            <%= article['content'] %>
+            <% end %>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <blockquote class="blockquote">
+        <h3 class="cover-heading text-center">Latest Tweets</h3>
+      </blockquote>
       <div class='tech-news text-dark'>
         <div class='card'>
-          <%= twitter_parser tweet %>
+          <% @tweets.each do |tweet| %>
+          <p><%= twitter_parser tweet %></p>
+          <% end %>
         </div>
       </div>
     </div>
-    <% end %>
   </div>
   <p class="lead text-center mt-5">
     <%= link_to "About Me", about_me_path, class: "btn btn-lg btn-secondary" %>

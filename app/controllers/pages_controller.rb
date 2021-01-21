@@ -26,7 +26,8 @@ class PagesController < ApplicationController
     date = (Date.today).iso8601
     sort_by = "popularity"
 
-    user_search = newsAPI_client.user_search(search_terms, date, sort_by)
+    search_results = newsAPI_client.user_search(search_terms, date, sort_by)
+    @user_search_results = search_results['articles']
   end
   
 end
