@@ -4,16 +4,17 @@ class BlogsController < ApplicationController
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
 
-  # GET /blogs
-  # GET /blogs.json
+  require './lib/apis/news_api.rb' 
+  require './lib/social_tool.rb'
+  # the two lines above need to be commented out when in production mode and eager loading is active
+  require 'date'
+
   def index
     @blogs = Blog.blogs_filter(current_user.role, params[:page],5)
     @page_title = "My Portfolio Blog"
     @featured_blogs = Blog.featured.limit(2)
   end
 
-  # GET /blogs/1
-  # GET /blogs/1.json
   def show
     if logged_in?(:site_admin) || @blog.published? || @blog.featured?
       @blog = Blog.includes(:comments).friendly.find(params[:id]) 
@@ -25,19 +26,15 @@ class BlogsController < ApplicationController
     end
   end
 
-  # GET /blogs/new
   def new
     @blog = Blog.new
     @page_title = "Enter a new blog"
   end
 
-  # GET /blogs/1/edit
   def edit
     @page_title = "Edit the blog"
   end
 
-  # POST /blogs
-  # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
     respond_to do |format|
@@ -51,8 +48,6 @@ class BlogsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /blogs/1
-  # PATCH/PUT /blogs/1.json
   def update
     respond_to do |format|
       if @blog.update(blog_params)
@@ -65,8 +60,6 @@ class BlogsController < ApplicationController
     end
   end
 
-  # DELETE /blogs/1
-  # DELETE /blogs/1.json
   def destroy
     @blog.destroy
     respond_to do |format|
@@ -80,13 +73,41 @@ class BlogsController < ApplicationController
     redirect_to blogs_url, notice: 'Post Status has been updated.'
   end
 
+  def tech_news
+    @tweets = SocialTool.twitter_search
+
+    
+    newsAPI_client = Apis::NewsApi::V2::Client.new(ENV['NEWS_API_KEY'])
+    
+    search_terms = "JavaScript"
+    date = (Date.today).iso8601
+    sort_by = "popularity"
+
+    search_results = newsAPI_client.user_search(search_terms, date, sort_by)
+    @user_search_results = search_results['articles']
+    
+    articles = []
+
+    @user_search_results.each do |article|
+      source_name = article['source']['name']
+      title = article['title']
+      blurb = article['description']
+      url = article['url']
+      image_url = article['urlToImage']
+      date = article['publishedAt']
+      body = article['content']
+      
+    end
+
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_blog
       @blog = Blog.friendly.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
+    
     def blog_params
       params.require(:blog).permit(:title, :body, :status, :topic_id, :blurb)
     end
