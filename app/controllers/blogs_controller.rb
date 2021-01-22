@@ -6,8 +6,9 @@ class BlogsController < ApplicationController
 
   require './lib/apis/news_api.rb'
   require './lib/apis/news_data.rb'
-  require './lib/social_tool.rb'
   # the two lines above need to be commented out when in production mode and eager loading is active
+  require './lib/social_tool.rb'
+  
   require 'date'
 
   def index
@@ -75,13 +76,14 @@ class BlogsController < ApplicationController
   end
 
   def tech_news
-    @tweets = SocialTool.twitter_search
+    search_terms = "JavaScript"
+
+    @tweets = SocialTool.twitter_search(search_terms)
 
     newsAPI_client = Apis::NewsApi::V2::Client.new(ENV['NEWS_API_KEY'])
 
-    search_terms = "JavaScript"
     date = (Date.today).iso8601 #from= and to=
-    sort_by = "popularity" #relavancy or date
+    sort_by = "relavancy" #popularity or date
 
     api_response = newsAPI_client.user_search(search_terms, date, sort_by)
 
