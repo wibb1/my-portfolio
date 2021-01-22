@@ -28,7 +28,7 @@ module Apis
         end
 
         def response_successful?(response)
-          response == 400
+          response == 200
         end
 
         def api_requests_quota_reached?
