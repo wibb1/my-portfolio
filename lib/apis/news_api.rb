@@ -2,15 +2,8 @@ module Apis
   module NewsApi
     module V2
       class Client
-        require './lib/apis/http_status_codes.rb'
-        require './lib/apis/api_exceptions.rb'
-# the two lines above need to be commented out when in production mode and eager loading is active
-
         require 'date'
         require 'faraday'
-
-        include HttpStatusCodes
-        include ApiExceptions
 
         attr_reader :api_key
 
@@ -26,33 +19,16 @@ module Apis
             req.headers["x-api-key"] = @api_key
           end
           
-          response_status = response.env.status
           parsed_response = JSON.parse(response.body)
-
-          return parsed_response if response_successful?(response_status)
-          raise error_class(response_status), "Code: #{response_status}, response: #{response.body}"
-        end
-
-        def error_class(response)
-          case response
-          when HTTP_BAD_REQUEST_CODE
-            BadRequestError
-          when HTTP_UNAUTHORIZED_CODE
-            UnauthorizedError
-          when HTTP_FORBIDDEN_CODE
-            return ApiRequestsQuotaReachedError if api_requests_quota_reached?
-            ForbiddenError
-          when HTTP_NOT_FOUND_CODE
-            NotFoundError
-          when HTTP_UNPROCESSABLE_ENTITY_CODE
-            UnprocessableEntityError
-          else
-            ApiError
-          end
+          parsed_results = parsed_response['articles']
+          
+          return parsed_results if response_successful?(response.env.status)
+          
+          raise StandardError.new "Code: #{response.env.status}, Response: #{parsed_response['message']}"
         end
 
         def response_successful?(response)
-          response == HTTP_OK_CODE
+          response == 400
         end
 
         def api_requests_quota_reached?

@@ -4,7 +4,8 @@ class BlogsController < ApplicationController
   layout "blog"
   access all: [:show, :index], user: {except: [:destroy, :new, :update, :edit, :toggle_status]}, site_admin: :all
 
-  require './lib/apis/news_api.rb' 
+  require './lib/apis/news_api.rb'
+  require './lib/apis/news_data.rb'
   require './lib/social_tool.rb'
   # the two lines above need to be commented out when in production mode and eager loading is active
   require 'date'
@@ -76,31 +77,34 @@ class BlogsController < ApplicationController
   def tech_news
     @tweets = SocialTool.twitter_search
 
-    
     newsAPI_client = Apis::NewsApi::V2::Client.new(ENV['NEWS_API_KEY'])
-    
+
     search_terms = "JavaScript"
-    date = (Date.today).iso8601
-    sort_by = "popularity"
+    date = (Date.today).iso8601 #from= and to=
+    sort_by = "popularity" #relavancy or date
 
-    search_results = newsAPI_client.user_search(search_terms, date, sort_by)
-    @user_search_results = search_results['articles']
-    
-    articles = []
+    api_response = newsAPI_client.user_search(search_terms, date, sort_by)
 
-    @user_search_results.each do |article|
-      source_name = article['source']['name']
-      title = article['title']
-      blurb = article['description']
-      url = article['url']
-      image_url = article['urlToImage']
-      date = article['publishedAt']
-      body = article['content']
-      
-    end
+    @articles = tech_news_articles(api_response)
 
   end
 
+  def tech_news_articles(api_response)
+    api_response.map do |article|
+    
+    Apis::NewsData.new(
+      article['source']['name'],
+      article['author'],
+      article['title'],
+      article['description'],
+      article['url'],
+      article['urlToImage'],
+      article['publishedAt'],
+      article['content']
+      )
+    end
+  end
+  
   private
     
     def set_blog
