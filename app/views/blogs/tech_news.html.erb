@@ -1,40 +1,27 @@
-<main role="main" class="inner cover my-5">
+<main role="main" class="container">
 
-  <h1 class="cover-heading">Tech News</h1>
+  <h1 class="text-center mb-4">Computer Programming News</h1>
 
   <div class="row">
-    <div class='col-md-6'>
+    <div class='col-md-8'>
       <blockquote class="blockquote">
         <h3 class="cover-heading text-center">Latest News</h3>
       </blockquote>
       <div class='tech-news text-dark'>
-        <% @user_search_results.each do |article| %>
-          <blockquote class='blockquote'>
-            <h4 class='cover-heading text-center'><%= article['title'] %></h4>
-            <footer class='blockquote-footer'>From: <%= article['source']['name'] %> By: <%= article['author'] %> <a href=<%= article['url'] %>>Link</a><footer>
-          <blockquote>
-
-            <p><%= article['description'] %></p>
-            <%= article['urlToImage'] %>
-            <%= article['publishedAt'] %>
-            <%= article['content'] %>
-            <% end %>
+        <%= render partial: 'shared/article', collection: @articles %>
       </div>
     </div>
-    <div class='col-md-6'>
+    <div class='col-md-4'>
       <blockquote class="blockquote">
         <h3 class="cover-heading text-center">Latest Tweets</h3>
       </blockquote>
       <div class='tech-news text-dark'>
-        <div class='card'>
-          <% @tweets.each do |tweet| %>
-          <p><%= twitter_parser tweet %></p>
-          <% end %>
+        <% @tweets.each do |tweet| %>
+        <div class='card my-2 p-2'>
+          <div><%= twitter_parser tweet %></div>
         </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <p class="lead text-center mt-5">
-    <%= link_to "About Me", about_me_path, class: "btn btn-lg btn-secondary" %>
-  </p>
 </main>

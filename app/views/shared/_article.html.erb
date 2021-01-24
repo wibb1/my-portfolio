@@ -1,0 +1,20 @@
+<div class="blog-post">
+  <h2 class="blog-post-title">
+    <%= link_to article.title, article.url %>
+  </h2>
+  <div class="d-flex align-items-center">
+    <div class="blog-post-meta m-0">
+      <div class="p-2">Published: <%= Date.parse(article.date).strftime("%B %-d, %Y") %></div>
+      <div class="p-2">Publisher: <%= article.source %></div>
+      <div class="p-2">Author: <%= article.author %></div>
+    </div>
+    <div class="ml-auto">
+      <%= image_tag "#{article.image}", style: "max-height:128px;width:auto" %>
+    </div>
+  </div>
+  <div class='row mt-4'>
+    <div class="col-auto">
+      <p> <%= truncate(article.body, length: 202) %> </p>
+    </div>
+  </div>
+</div>
