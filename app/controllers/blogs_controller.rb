@@ -10,6 +10,7 @@ class BlogsController < ApplicationController
   require './lib/social_tool.rb'
   
   require 'date'
+  include TechNewsConcern
 
   def index
     @blogs = Blog.blogs_filter(current_user.role, params[:page],5)
@@ -76,36 +77,17 @@ class BlogsController < ApplicationController
   end
 
   def tech_news
-    search_terms = "JavaScript"
-
+    @page_title = "Tech News"
+    search_terms = "Computer Programming"
     @tweets = SocialTool.twitter_search(search_terms)
-
     newsAPI_client = Apis::NewsApi::V2::Client.new(ENV['NEWS_API_KEY'])
-
-    date = (Date.today).iso8601 #from= and to=
+    date = Date.today #from= and to=
     sort_by = "relavancy" #popularity or date
-
     api_response = newsAPI_client.user_search(search_terms, date, sort_by)
-
     @articles = tech_news_articles(api_response)
 
   end
 
-  def tech_news_articles(api_response)
-    api_response.map do |article|
-    
-    Apis::NewsData.new(
-      article['source']['name'],
-      article['author'],
-      article['title'],
-      article['description'],
-      article['url'],
-      article['urlToImage'],
-      article['publishedAt'],
-      article['content']
-      )
-    end
-  end
   
   private
     
