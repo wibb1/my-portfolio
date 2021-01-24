@@ -79,13 +79,15 @@ class BlogsController < ApplicationController
   def tech_news
     @page_title = "Tech News"
     search_terms = "Computer Programming"
+    date = Date.today 
+    sort_by = "relavancy" #can also be popularity or date
+
     @tweets = SocialTool.twitter_search(search_terms)
+
     newsAPI_client = Apis::NewsApi::V2::Client.new(ENV['NEWS_API_KEY'])
-    date = Date.today #from= and to=
-    sort_by = "relavancy" #popularity or date
+
     api_response = newsAPI_client.user_search(search_terms, date, sort_by)
     @articles = tech_news_articles(api_response)
-
   end
 
   
