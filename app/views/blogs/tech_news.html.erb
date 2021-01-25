@@ -1,0 +1,27 @@
+<main role="main" class="container">
+
+  <h1 class="text-center mb-4">Computer Programming News</h1>
+
+  <div class="row">
+    <div class='col-md-8'>
+      <blockquote class="blockquote">
+        <h3 class="cover-heading text-center">Latest News</h3>
+      </blockquote>
+      <div class='tech-news text-dark'>
+        <%= render partial: 'shared/article', collection: @articles %>
+      </div>
+    </div>
+    <div class='col-md-4'>
+      <blockquote class="blockquote">
+        <h3 class="cover-heading text-center">Latest Tweets</h3>
+      </blockquote>
+      <div class='tech-news text-dark'>
+        <% @tweets.each do |tweet| %>
+        <div class='card my-2 p-2'>
+          <div><%= twitter_parser tweet %></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
