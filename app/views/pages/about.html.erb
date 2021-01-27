@@ -338,16 +338,11 @@
           <div class='row'>
             <div class='col'>
               <% @skills.each do |skill| %>
-                <h5><%= skill.title %></h5>
-                <div class='progress'>
-                  <div 
-                    class="progress-bar progress-bar-striped bg-warning"
-                    role="progressbar"
-                    aria-valuenow="<%= skill.percent_utilized %>"
-                    aria-valumax="100"
-                    style="width: <%=skill.percent_utilized %>%">
-                  </div>
-                </div>  
+              <h5><%= skill.title %></h5>
+              <div class='progress'>
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" aria-valuenow="<%= skill.percent_utilized %>" aria-valumax="100" style="width: <%=skill.percent_utilized %>%">
+                </div>
+              </div>
               <% end %>
             </div>
           </div>
@@ -355,6 +350,28 @@
       </div>
     </div>
     <!-- first accordian card 5 -->
+
+    <!-- first accordian card 6 -->
+    <div class='card bg-secondary'>
+      <div class="card-header" id="headingSix">
+        <h5 class="mb-0">
+          <button class="btn btn-block btn-outline-light btn-lg collapsed" type="button" data-toggle='collapse' data-target='#collapseSix' aria-expanded='false' aria-controls='collapseSix'>
+            Photos
+          </button>
+      </div>
+      <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
+        <div class='card-body'>
+          <div class='row'>
+            <div class='col'>
+              <p>The photos in the background on the Home, About Me, and Contact pages are my own.  I am an amature but avid photographer and on my trips both around the world and around the block I have collected thousands of wonderful photographs.  I noticed when I put the photo loop onto the website that I could not see them very well, so I created a new page to allow you to see the photos better.</p> 
+
+              <%= link_to "Enjoy the Photos", enjoy_path, class: "btn btn-lg btn-secondary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- first accodian card 6 -->
   </div>
   <!-- first accodian -->
 </main>
