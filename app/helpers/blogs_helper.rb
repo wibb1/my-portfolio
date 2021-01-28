@@ -41,8 +41,7 @@ module BlogsHelper
 
   class CodeRayImp < Redcarpet::Render::HTML
     def block_code(code, language)
-      language ||= :plaintext
-      CodeRay.scan(code, language).div
+      CodeRay.scan(code, language || :text).div
     end
   end
 
@@ -50,8 +49,7 @@ module BlogsHelper
     coderay_options = {
       filter_html: true, 
       hard_wrap: true, 
-      prettify: true, 
-      link_attributes: true
+      prettify: true
     }
 
     transformed = CodeRayImp.new(coderay_options)
