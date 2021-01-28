@@ -7,7 +7,7 @@ I really enjoyed the course, the different technologies used really kept me on m
 This app is the basis of that course, although I have put several of my own tweeks on it.  This app will also serve as my portfolio for other projects that I have completed, a space to put some of the gist/instructions that I have put together, and a place to put notes on the things I learn along the way.  You can also see an online version of my resume and learn a little bit about me.  Finally the pictures on the site are my own, I will try to change these up from time to time as well to keep it interesting.  
 
 ## Deployed
-Visit the deployed application on Heroku at 
+Visit the deployed application on Heroku at https://wkc-my-portfolio-app.herokuapp.com/
 ---
 
 ## Author 
