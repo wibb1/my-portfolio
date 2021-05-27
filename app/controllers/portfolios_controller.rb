@@ -36,7 +36,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio_item.save
-        format.html { redirect_to portfolio_path(@portfolio_item), notice: "Portfolio successfully amended." }
+        format.html { redirect_to portfolios_path, notice: "Portfolio successfully amended." }
       else
         format.html { render :new }
       end
@@ -72,7 +72,9 @@ class PortfoliosController < ApplicationController
                                       :blurb,
                                       :body,
                                       :main_image,
-                                      :thumb_image,
+                                      :thumb_image, 
+                                      :github_link, 
+                                      :deployed_link,
                                       technologies_attributes: [:id, :name, :_destroy]
                                     )
   end
