@@ -72,7 +72,9 @@ class PortfoliosController < ApplicationController
                                       :blurb,
                                       :body,
                                       :main_image,
-                                      :thumb_image,
+                                      :thumb_image, 
+                                      :github_link, 
+                                      :deployed_link,
                                       technologies_attributes: [:id, :name, :_destroy]
                                     )
   end
