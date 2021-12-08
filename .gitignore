@@ -34,3 +34,6 @@ yarn-debug.log*
 
 # Ignore environment variables
 .env
+
+# Ignore .DS_Store
+.DS_Store
