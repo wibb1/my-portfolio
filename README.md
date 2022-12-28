@@ -17,7 +17,7 @@ This app is the basis of that course, although I have put several of my own twee
 This app will serve as my portfolio for other projects that I have completed, a space to put some of the gist/instructions that I have put together, and a place to put notes on the things I learn along the way.    
 
 ## Deployed
-Vist the deployed application on Heroku at https://wkc-my-portfolio-app.herokuapp.com
+Not currently deployed 
 
 ## Author 
 Will Campbell
