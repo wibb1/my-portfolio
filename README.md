@@ -58,7 +58,7 @@ git clone https://github.com/wibb1/my-portfolio
 
 database setup
 ```
-bunlde exec rake db:setup
+bundle exec rake db:setup
 ```
 
 Start the rails server
